@@ -1,0 +1,85 @@
+<mxfile host="65bd71144e">
+    <diagram id="emx--j02RHZtGgA4Yv3p" name="Page-1">
+        <mxGraphModel dx="882" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="8" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="2" target="3">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="&lt;u&gt;Users&lt;br&gt;&lt;/u&gt;id&lt;br&gt;username&lt;br&gt;passworld" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+                    <mxGeometry x="10" y="90" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="&lt;u&gt;Reviews&lt;br&gt;&lt;/u&gt;id&lt;br&gt;star_rating&lt;br&gt;comment&lt;br&gt;created_at&lt;br&gt;user_id&lt;br&gt;bootcamp_id" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#008a00;fontColor=#ffffff;strokeColor=#005700;" vertex="1" parent="1">
+                    <mxGeometry x="270" y="40" width="120" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" style="edgeStyle=none;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="4" target="3">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="&lt;u&gt;Bootcamps&lt;/u&gt;&lt;br&gt;id&lt;br&gt;name&lt;br&gt;image" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+                    <mxGeometry x="530" y="80" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" style="edgeStyle=none;html=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="10" target="12">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" style="edgeStyle=none;html=1;entryX=0.592;entryY=0.026;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="10" target="11">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="10" target="13">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="10" target="14">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="App" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0a30a;fontColor=#000000;strokeColor=#BD7000;" vertex="1" parent="1">
+                    <mxGeometry x="320" y="340" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="About" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3c800;fontColor=#000000;strokeColor=#B09500;" vertex="1" parent="1">
+                    <mxGeometry x="250" y="460" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="Logout" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3c800;fontColor=#000000;strokeColor=#B09500;" vertex="1" parent="1">
+                    <mxGeometry x="50" y="460" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=#000000;" edge="1" parent="1" source="13" target="19">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="Home&lt;br&gt;&lt;br&gt;get request to Bootcamps" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3c800;fontColor=#000000;strokeColor=#B09500;" vertex="1" parent="1">
+                    <mxGeometry x="425" y="460" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=#000000;" edge="1" parent="1" source="14" target="21">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="LogIn&lt;br&gt;&lt;br&gt;get request to Users" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3c800;fontColor=#000000;strokeColor=#B09500;" vertex="1" parent="1">
+                    <mxGeometry x="600" y="460" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" style="edgeStyle=none;html=1;entryX=0.592;entryY=-0.026;entryDx=0;entryDy=0;entryPerimeter=0;fontColor=#000000;" edge="1" parent="1" source="19" target="24">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=#000000;" edge="1" parent="1" source="19" target="26">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="BootcampItem" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFF66;strokeColor=#B09500;fontColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="430" y="570" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="SignUp&lt;br&gt;&lt;br&gt;post request to Users" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFF66;strokeColor=#B09500;fontColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="610" y="570" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="Reviews&lt;br&gt;&lt;br&gt;get, patch, delete request to Reviews&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;fontColor=#000000;fillColor=#FFFF99;" vertex="1" parent="1">
+                    <mxGeometry x="350" y="680" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="Form&lt;br&gt;&lt;br&gt;post request to Reviews" style="rounded=1;whiteSpace=wrap;html=1;fontColor=#000000;fillColor=#FFFF99;" vertex="1" parent="1">
+                    <mxGeometry x="520" y="680" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="&lt;u&gt;Routes&lt;/u&gt;&lt;br&gt;/signup&lt;br&gt;/login&lt;br&gt;/logout&lt;br&gt;/bootcamps&lt;br&gt;/bootcamps/:id&lt;br&gt;/bootcamps/:id/form" style="shape=ext;double=1;rounded=1;whiteSpace=wrap;html=1;fontColor=#ffffff;fillColor=#6d8764;strokeColor=#3A5431;" vertex="1" parent="1">
+                    <mxGeometry x="630" y="210" width="120" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="Tasks:&lt;br&gt;1.Send up backend server and route - rest of day&lt;br&gt;2. Sign In- get to tonight/tomorrow(Katey)&lt;br&gt;3. Build frontend components(Hyen)&lt;br&gt;4. work on fetch request to our server(tomrorow)&lt;br&gt;5. CSS (thursday afternoon)" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="660" width="250" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" value="Stretch goals:&lt;br&gt;edit reviews&lt;br&gt;advanced CSS&lt;br&gt;add a new bootcamp" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="570" y="820" width="120" height="120" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
