@@ -21,15 +21,24 @@ class ApplicationController < Sinatra::Base
     end
 
     post '/bootcamps/:name' do
-        Review.create(star_rating: params[:star_rating], comment: params[:comment], user_id: params[:user_id], bootcamp_id: params[:id])
+        bootcamp_id = Bootcamp.find_by(name: params[:name]).id.to_json
+        Review.create(star_rating: params[:star_rating], comment: params[:comment], user_id: params[:user_id], bootcamp_id: bootcamp_id)
     end
 
-    # patch '/bootcamps/:id' do
-    #     Review.find()
+    get '/bootcamps/:name/:id' do
+        reviews = Bootcamp.find_by(name: params[:name]).reviews
+        review = reviews.find(params[:id])
+        review.to_json
+        
+    end
 
-    # end
+    patch '/bootcamps/:name/:id' do
+        review = Review.find(params[:id])
+        review.update(star_rating: params[:star_rating], comment: params[:comment])
+    end
 
-
-
+    delete '/bootcamps/:name/:id' do
+        Review.find(params[:id]).destroy
+    end
     
   end
