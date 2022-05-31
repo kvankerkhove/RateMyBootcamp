@@ -1,12 +1,14 @@
+import {Switch, Route} from 'react-router-dom';
+import NavBar from './NavBar';
+import About from './About';
+import Home from './Home';
+import SignUp from './SignUp';
 
 function App() {
   return (
     <div>
       <NavBar/>
       <Switch>
-        <Route path="/logout">
-          <Logout/>
-        </Route>
         <Route path="/about">
           <About/>
         </Route>
