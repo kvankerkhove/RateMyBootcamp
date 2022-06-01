@@ -45,9 +45,6 @@ function App() {
   }
 
   function handleReviewDelete(reviewid) {
-    console.log(currentBootcamp);
-    console.log(reviewid);
-
     const updatedReviews = reviews.filter((review) => review.id !== reviewid);
 
     fetch(
@@ -73,9 +70,6 @@ function App() {
     setUsers([...users, signUpInfo]);
   };
 
-  console.log(currentUser);
-  console.log(users);
-
   useEffect(() => {
     if (currentUser !== "") {
       const loggedInUser = users.filter(
@@ -84,6 +78,11 @@ function App() {
       setLoggedInUserId(loggedInUser[0].id);
     }
   }, [currentUser, users]);
+
+  function formSubmit(newData) {
+    const updatedReviews = [...reviews, newData];
+    setReviews(updatedReviews);
+  }
 
   return (
     <div>
@@ -116,6 +115,7 @@ function App() {
             currentBootcamp={currentBootcamp}
             handleReviewDelete={handleReviewDelete}
             loggedInUserId={loggedInUserId}
+            formSubmit={formSubmit}
           />
         </Route>
       </Switch>

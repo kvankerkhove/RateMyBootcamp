@@ -2,15 +2,13 @@ import React, { useState } from "react";
 import "./Form.css";
 import StarRating from "./StarRating";
 
-function Form({ currentBootcamp, loggedInUserId }) {
+function Form({ currentBootcamp, loggedInUserId, formSubmit }) {
   const [formData, setFormData] = useState({
     star_rating: "",
     comment: "",
     user_id: loggedInUserId,
     bootcamp_id: currentBootcamp.id,
   });
-
-  console.log(currentBootcamp);
 
   function handleOnChange(e) {
     setFormData({ ...formData, comment: e.target.value });
@@ -20,11 +18,17 @@ function Form({ currentBootcamp, loggedInUserId }) {
     setFormData({ ...formData, star_rating: rating });
   };
 
-  console.log(formData);
-
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(e);
+    fetch(`http://localhost:9292/bootcamps/${currentBootcamp.name}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => res.json())
+      .then((data) => formSubmit(data));
   }
   return (
     <div>

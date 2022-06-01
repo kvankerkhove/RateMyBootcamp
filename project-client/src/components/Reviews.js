@@ -7,9 +7,9 @@ function Reviews({
   currentBootcamp,
   handleReviewDelete,
   loggedInUserId,
+  formSubmit,
 }) {
   console.log(reviews);
-  console.log(currentBootcamp);
   const review = reviews.map((review) => {
     return (
       <ReviewTiles
@@ -24,7 +24,11 @@ function Reviews({
       <h1>{currentBootcamp.name}</h1>
       <img src={currentBootcamp.image} alt="" />
       {review}
-      <Form currentBootcamp={currentBootcamp} loggedInUserId={loggedInUserId} />
+      <Form
+        currentBootcamp={currentBootcamp}
+        loggedInUserId={loggedInUserId}
+        formSubmit={formSubmit}
+      />
     </div>
   );
 }
