@@ -28,7 +28,7 @@ class ApplicationController < Sinatra::Base
 
     post '/bootcamps/:name' do
         bootcamp_id = Bootcamp.find_by(name: params[:name]).id.to_json
-        Review.create(star_rating: params[:star_rating], comment: params[:comment], user_id: params[:user_id], bootcamp_id: bootcamp_id)
+        Review.create(star_rating: params[:star_rating], comment: params[:comment], user_id: params[:user_id], bootcamp_id: bootcamp_id).to_json
     end
 
     get '/bootcamps/:name/:id' do
