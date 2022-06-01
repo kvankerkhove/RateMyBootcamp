@@ -15,6 +15,16 @@ class ApplicationController < Sinatra::Base
         bootcamps.to_json(include: :reviews)
     end
 
+    # get '/bootcamps/:id' do
+    #     bootcamp = Bootcamp.find_by(params[:id])
+    #     bootcamp.to_json(include: :reviews)
+    # end
+
+    get '/users/:id' do
+        user = User.find(params[:id])
+        user.to_json
+    end
+    
     get '/bootcamps/:name' do
         bootcamp = Bootcamp.find_by(name: params[:name]).reviews
         bootcamp.to_json
