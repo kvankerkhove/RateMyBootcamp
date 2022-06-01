@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import "./Form.css";
 import StarRating from "./StarRating";
 
-function Form({ currentBootcamp }) {
+function Form({ currentBootcamp, loggedInUserId }) {
   const [formData, setFormData] = useState({
     star_rating: "",
     comment: "",
-    user_id: "",
+    user_id: loggedInUserId,
     bootcamp_id: currentBootcamp.id,
   });
 

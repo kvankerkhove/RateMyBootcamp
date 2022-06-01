@@ -1,20 +1,23 @@
-import { Switch, Route, useParams, useHistory } from "react-router-dom";
+import { Switch, Route, useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 import NavBar from "./NavBar";
 import About from "./About";
 import Home from "./Home";
 import Login from "./Login";
 import Reviews from "./Reviews";
+import SignUp from "./SignUp";
 
 function App() {
   const [bootcamps, setBootcamps] = useState([]);
+  const [users, setUsers] = useState([]);
+  const [currentUser, setCurrentUser] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [reviews, setReviews] = useState([]);
   const [currentBootcamp, setCurrentBootcamp] = useState([]);
+  const [loggedInUserId, setLoggedInUserId] = useState("");
 
   const history = useHistory();
-  // let { id } = useParams()
-  // console.log(bootcamps)
-  // console.log(id)
+
   const [currentPath, setCurrentPath] = useState("");
 
   useEffect(() => {
@@ -56,24 +59,63 @@ function App() {
     setReviews(updatedReviews);
   }
 
+  useEffect(() => {
+    fetch("http://localhost:9292/login")
+      .then((res) => res.json())
+      .then((data) => setUsers(data));
+  }, []);
+  const handleLogin = (loginInfo) => {
+    setCurrentUser(loginInfo);
+    setIsLoggedIn(true);
+    history.push("/bootcamps");
+  };
+  const onSignUpClick = (signUpInfo) => {
+    setUsers([...users, signUpInfo]);
+  };
+
+  console.log(currentUser);
+  console.log(users);
+
+  useEffect(() => {
+    if (currentUser !== "") {
+      const loggedInUser = users.filter(
+        (user) => currentUser.username === user.username
+      );
+      setLoggedInUserId(loggedInUser[0].id);
+    }
+  }, [currentUser, users]);
+
   return (
     <div>
-      <NavBar />
+      <NavBar setIsLoggedIn={setIsLoggedIn} setCurrentUser={setCurrentUser} />
       <Switch>
         <Route path="/about">
           <About />
         </Route>
         <Route path="/bootcamps">
-          <Home bootcamps={bootcamps} handleReviewClick={handleReviewClick} />
+          <Home
+            bootcamps={bootcamps}
+            handleReviewClick={handleReviewClick}
+            currentUser={currentUser}
+            isLoggedIn={isLoggedIn}
+          />
         </Route>
         <Route path="/login">
-          <Login />
+          <Login
+            users={users}
+            handleLogin={handleLogin}
+            isLoggedIn={isLoggedIn}
+          />
+        </Route>
+        <Route path="/signup">
+          <SignUp users={users} onSignUpClick={onSignUpClick} />
         </Route>
         <Route path="/reviews">
           <Reviews
             reviews={reviews}
             currentBootcamp={currentBootcamp}
             handleReviewDelete={handleReviewDelete}
+            loggedInUserId={loggedInUserId}
           />
         </Route>
       </Switch>

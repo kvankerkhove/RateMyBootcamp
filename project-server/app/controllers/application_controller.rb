@@ -6,19 +6,15 @@ class ApplicationController < Sinatra::Base
         users.to_json
     end
 
-    post '/login/signup' do
-        User.create(username: params[:username], password: params[:password])
+    post '/signup' do
+        new_user =  User.create(username: params[:username], password: params[:password])
+        new_user.to_json
     end
 
     get '/bootcamps' do
         bootcamps = Bootcamp.all
         bootcamps.to_json(include: :reviews)
     end
-
-    # get '/bootcamps/:id' do
-    #     bootcamp = Bootcamp.find_by(params[:id])
-    #     bootcamp.to_json(include: :reviews)
-    # end
 
     get '/users/:id' do
         user = User.find(params[:id])
