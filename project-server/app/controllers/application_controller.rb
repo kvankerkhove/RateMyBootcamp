@@ -38,10 +38,11 @@ class ApplicationController < Sinatra::Base
         
     end
 
-    patch '/bootcamps/:name/:id' do
-        review = Review.find(params[:id])
-        review.update(star_rating: params[:star_rating], comment: params[:comment])
-    end
+    # patch '/bootcamps/:name/:id' do
+    #     review = Review.find(params[:id])
+    #     review.update(star_rating: params[:star_rating], comment: params[:comment])
+    # end
+    # maybe dont need???
 
     delete '/bootcamps/:name/:id' do
         Review.find(params[:id]).destroy
