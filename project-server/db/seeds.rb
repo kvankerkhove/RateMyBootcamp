@@ -33,4 +33,13 @@ Bootcamp.create(name: "Codesmith", image: "https://coursereport-production.imgix
     )
 end
 
+100.times do 
+    comments = ['ljfslksdfj', 'jfldsjfdlk', 'jlfsjklsdf', 'jlfdsjlskfd', 'oiuewrioew', 'uirepowure', 'oewurio']
+    Comment.create(
+        text: comments.sample,
+        user_id: User.ids.sample,
+        review_id: Review.ids.sample
+    )
+end
+
 

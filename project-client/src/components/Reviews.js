@@ -22,6 +22,7 @@ function Reviews({
         handleReviewDelete={handleReviewDelete}
         isLoggedIn = {isLoggedIn}
         currentUser = {currentUser}
+        loggedInUserId = {loggedInUserId}
       />
     )
   })

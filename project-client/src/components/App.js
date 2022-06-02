@@ -70,11 +70,13 @@ function App() {
       .then((res) => res.json())
       .then((data) => setUsers(data));
   }, []);
+
   const handleLogin = (loginInfo) => {
     setCurrentUser(loginInfo);
     setIsLoggedIn(true);
     history.push("/bootcamps");
   };
+  
   const onSignUpClick = (signUpInfo) => {
     setUsers([...users, signUpInfo]);
   };

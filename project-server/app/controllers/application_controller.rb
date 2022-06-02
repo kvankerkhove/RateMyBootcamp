@@ -47,5 +47,17 @@ class ApplicationController < Sinatra::Base
     delete '/bootcamps/:name/:id' do
         Review.find(params[:id]).destroy
     end
+
+    get '/reviews/:id' do
+        Review.find(params[:id]).comments.to_json
+    end
+
+    post '/reviews/:id' do
+        Comment.create(text: params[:text], user_id: params[:user_id], review_id: params[:id]).to_json
+    end
+
+    delete '/reviews/:id/:otherId' do
+        Comment.find(params[:otherId]).destroy
+    end
     
   end

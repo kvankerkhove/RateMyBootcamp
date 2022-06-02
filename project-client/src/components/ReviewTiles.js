@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from "react"
 import './ReviewTiles.css'
 import moment from 'moment'
-import { GrEdit } from 'react-icons/gr'
 import { BsTrash } from 'react-icons/bs'
 import { AiFillStar } from 'react-icons/ai'
+import Comment from './Comment'
+import CommentForm from './CommentForm'
 
-function ReviewTiles({ review, handleReviewDelete, isLoggedIn, currentUser }) {
+function ReviewTiles({ review, handleReviewDelete, isLoggedIn, currentUser, loggedInUserId }) {
   const { id, star_rating, comment, created_at, user_id } = review;
   const [reviewAuthor, setReviewAuthor] = useState([]);
+  const [reviewComments, setReviewComments] = useState([])
+
+  console.log(`comments ${reviewComments}`)
+
+  // console.log(`Review id? ${id}`)
 
   useEffect(() => {
     fetch(`http://localhost:9292/users/${user_id}`)
@@ -34,7 +40,7 @@ function ReviewTiles({ review, handleReviewDelete, isLoggedIn, currentUser }) {
 
   const isCurrentUser = currentUser.username === reviewAuthor ? true : false
 
-  console.log(isCurrentUser)
+
 
 
   // console.log(created_at)
@@ -43,28 +49,56 @@ function ReviewTiles({ review, handleReviewDelete, isLoggedIn, currentUser }) {
   // console.log(cutDate)
   
   // 2022-05-31T20:45:28.272Z
+  useEffect(() => {
+    fetch(`http://localhost:9292/reviews/${id}`)
+    .then(res => res.json())
+    .then(data => setReviewComments(data))
+  }, [])
 
+  const handleCommentDelete = (deletedCommentId) => {
+    const updatedComments = reviewComments.filter((comment) => comment.id !== deletedCommentId )
+    fetch(`http://localhost:9292/reviews/${id}/${deletedCommentId}`, {
+        method: 'DELETE'
+    })
+    setReviewComments(updatedComments)
+  }
+
+  const renderComments = reviewComments.map(comment => {
+    return <Comment key={comment.id} comment={comment} isLoggedIn={isLoggedIn} currentUser={currentUser} handleCommentDelete={handleCommentDelete}/>
+  })
+
+  const handleCommentSubmit = (newComment) => {
+    const updatedComments = [...reviewComments, newComment];
+    setReviewComments(updatedComments)
+  }
+
+  
 
 
   return (
-    <div id="card">
-      <div id="container">
-        <div className='stars-name'>
-          <div className='stars-ago'>
-            <>
-              <p id="stars">{renderStars(star_rating)} </p>
-            </>
-            <div>
-
-              {isLoggedIn && isCurrentUser ? <button className='review-button' onClick={() => handleDelete(id)}><BsTrash/></button> : null }
-              {isLoggedIn && isCurrentUser ? <button className='review-button'><GrEdit/></button> : null }
+    <>
+      <div id="card">
+        <div id="container">
+          <div className='stars-name'>
+            <div className='stars-ago'>
+              <>
+                <p id="stars">{renderStars(star_rating)} </p>
+              </>
+              <div>
+                {isLoggedIn && isCurrentUser ? <button className='review-button' onClick={() => handleDelete(id)}><BsTrash/></button> : null }
+              </div>
             </div>
+            <small id="username"><b> {reviewAuthor}</b><small id="time-ago"> {time}</small></small>
           </div>
-          <small id="username"><b> {reviewAuthor}</b><small id="time-ago"> {time}</small></small>
         </div>
+        <h3>{comment}</h3>
       </div>
-      <h3>{comment}</h3>
-    </div>
+      <div id="review-comments">
+        {renderComments}
+        {reviewComments.length > 0 ? null : <small>Be the first to leave a comment on this review!</small>}
+        {isLoggedIn ? <CommentForm reviewId={id} loggedInUserId={loggedInUserId} handleCommentSubmit={handleCommentSubmit}/> : null }
+      </div>
+    </>
   )
 }
 
