@@ -24,10 +24,14 @@ Bootcamp.create(name: "Codesmith", image: "https://coursereport-production.imgix
 
 
 30.times do 
-    reviews = ['great', 'wish i learned more', 'very satisfied', 'loved learning here!', 'do in person if you decide to to this bootcamp', 'not satisfied', 'difficult but gratifying', 'did not prepare me for interview process', 'wonderful experienced']
+    title = ['great', 'wish i learned more', 'very satisfied', 'loved learning here!', 'do in person if you decide to to this bootcamp', 'not satisfied', 'difficult but gratifying', 'did not prepare me for interview process', 'wonderful experienced']
+    comments = ['ldsjbe jeowi f jifoewfkjo jfewoijfeiofew jioejwoe nfsdnflk fjd jfldksjfqpdweop fnpwkcpow djsjfk  hioqev  vie roqvioferq nfqko', ' fjsdkljf djife fjeiow jfkdsncv jsdfojfepo jsdnckldm fs  jfdkslkd ', 'ksdljj fdsofjk kfdjskljdf i jfeiwjelk jfdksj fdjskljfekl pfdp']
+
+    
     Review.create(
         star_rating: rand(1..5),
-        comment: reviews.sample,
+        title: title.sample,
+        comment: comments.sample,
         user_id: User.ids.sample,
         bootcamp_id: Bootcamp.ids.sample
     )

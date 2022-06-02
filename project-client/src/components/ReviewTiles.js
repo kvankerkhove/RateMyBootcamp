@@ -7,11 +7,13 @@ import Comment from './Comment'
 import CommentForm from './CommentForm'
 
 function ReviewTiles({ review, handleReviewDelete, isLoggedIn, currentUser, loggedInUserId }) {
-  const { id, star_rating, comment, created_at, user_id } = review;
+  const { id, star_rating, title, comment, created_at, user_id } = review;
   const [reviewAuthor, setReviewAuthor] = useState([]);
   const [reviewComments, setReviewComments] = useState([])
+  const [commentsShowing, setCommentsShowing] = useState(false)
 
-  console.log(`comments ${reviewComments}`)
+
+  console.log(commentsShowing)
 
   // console.log(`Review id? ${id}`)
 
@@ -37,6 +39,7 @@ function ReviewTiles({ review, handleReviewDelete, isLoggedIn, currentUser, logg
   }
 
   const time = moment(created_at).fromNow();
+  const date = moment(created_at).format("MMM D")
 
   const isCurrentUser = currentUser.username === reviewAuthor ? true : false
 
@@ -72,6 +75,10 @@ function ReviewTiles({ review, handleReviewDelete, isLoggedIn, currentUser, logg
     setReviewComments(updatedComments)
   }
 
+  const handleShowComments = (e) => {
+    setCommentsShowing(!commentsShowing)
+  }
+
   
 
 
@@ -88,16 +95,21 @@ function ReviewTiles({ review, handleReviewDelete, isLoggedIn, currentUser, logg
                 {isLoggedIn && isCurrentUser ? <button className='review-button' onClick={() => handleDelete(id)}><BsTrash/></button> : null }
               </div>
             </div>
-            <small id="username"><b> {reviewAuthor}</b><small id="time-ago"> {time}</small></small>
+            <small id="username"><b> {reviewAuthor}</b><small id="time-ago"> {date}, {time}</small></small>
           </div>
         </div>
-        <h3>{comment}</h3>
+        <br></br>
+        <h4>{title}</h4>
+        <p>{comment}</p>
+        <button id="show-comments-btn" onClick={handleShowComments}>{commentsShowing ? "hide comments" : "show comments"}</button>
       </div>
+      {commentsShowing ? 
       <div id="review-comments">
         {renderComments}
         {reviewComments.length > 0 ? null : <small>Be the first to leave a comment on this review!</small>}
         {isLoggedIn ? <CommentForm reviewId={id} loggedInUserId={loggedInUserId} handleCommentSubmit={handleCommentSubmit}/> : null }
       </div>
+      : null }
     </>
   )
 }

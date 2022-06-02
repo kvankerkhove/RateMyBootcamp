@@ -1,20 +1,23 @@
+#reviews-page {
+    background-image: url('https://images5.alphacoders.com/390/390081.jpg');
+}
+
 .reviews-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     text-align: center;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-bottom: 10%;
+    margin-left: 7%;
+    margin-right: 7%;
 }
 
 .reviews-child {
-    background-color: white;
+    /* background-color: black; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
-
+    margin-top: 50px;
 }
 
 .reviews-header {
@@ -23,6 +26,7 @@
     justify-content: flex-start;
     /* text-align: center; */
     margin-left: 10px;
+    color: white;
 }
 
 .bootcamp-image {
@@ -32,13 +36,13 @@
 
 
 .form-child {
-    margin-top: 20px;
+    margin-top: 100px;
     background-color: lightblue;
     color: white;
     padding: 20px;
     border-radius: 15px;
     position: sticky; top: 0px;
-    height: 200px;
-    width: 40%;
+    height: 50%;
+    width: 45%;
 
 }

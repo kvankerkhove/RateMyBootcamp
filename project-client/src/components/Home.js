@@ -1,7 +1,7 @@
 import BootcampItem from "./BootcampItem";
 import './Home.css' 
 
-function Home({ bootcamps, handleReviewClick, currentUser, isLoggedIn }) {
+function Home({ bootcamps, handleReviewClick }) {
   const renderBootcamps = bootcamps.map((bootcamp) => {
     return (
       <BootcampItem
@@ -13,11 +13,10 @@ function Home({ bootcamps, handleReviewClick, currentUser, isLoggedIn }) {
   });
   return (
     <div id="home">
-      {isLoggedIn ? <h1>Welcome, {currentUser.username}</h1> : null}
-      <h1>BootCamps</h1>
-      <h3>Harsh Reviews are Welcome</h3>
-      <div className='wrapper'>{renderBootcamps}</div>
-    </div>
+      <h1 id="title">Review Coding Bootcamps</h1>
+      <h3 id="subtitle">Honest reviews are welcome!</h3>
+      <div className="wrapper">{renderBootcamps}</div>
+  </div>
   );
 }
 

@@ -20,12 +20,14 @@ ActiveRecord::Schema.define(version: 2022_06_02_141801) do
 
   create_table "comments", force: :cascade do |t|
     t.string "text"
+    t.datetime "created_at"
     t.integer "user_id"
     t.integer "review_id"
   end
 
   create_table "reviews", force: :cascade do |t|
     t.integer "star_rating"
+    t.string "title"
     t.string "comment"
     t.datetime "created_at"
     t.integer "user_id"

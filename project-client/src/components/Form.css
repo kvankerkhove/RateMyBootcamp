@@ -51,3 +51,13 @@
     top:0px;
     left:0px; 
 }
+
+#submit-review-form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.review-form-labels {
+    font-size: 20px;
+}

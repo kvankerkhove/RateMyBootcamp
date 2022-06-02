@@ -1,4 +1,4 @@
-#navbar_container{
+/* #navbar_container{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -18,4 +18,45 @@
     display: flex;
     flex-direction: row;
     margin-right: 2%;
- }
+ } */
+
+ #navbar_container{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   margin-left: 0%;
+   margin-right: 0%;
+ 
+ 
+}
+
+.nav_link{
+  color:aqua
+}
+
+a {
+  margin-top: 10px;
+}
+.left_navbar{
+   display: flex;
+   flex-direction: row;
+   margin-left: 2%;
+}
+#right_navbar{
+   display: flex;
+   flex-direction: row;
+   margin-right: 2%;
+}
+
+#logoutbtn{
+   background-color: aqua;
+   color: black;
+   border-color: aqua;
+}
+
+#welcome_user{
+  color: aqua;
+  font-size: 18px;
+  margin-top: 10px;
+  margin-right: 10px;
+}

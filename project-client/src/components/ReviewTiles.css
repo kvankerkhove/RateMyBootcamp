@@ -1,10 +1,13 @@
 #card {
-    background-color: white;
+    display: flex;
+    flex-direction: column;
+    background-color: black;
     border: solid 3px black;
     width: 500px;
     border-radius: 20px;
     padding: 10px;
     margin-top: 50px;
+    color: white;
 }
 
 
@@ -20,7 +23,7 @@
 }
 
 #stars {
-    font-size: 20px;
+    font-size: 30px;
     color: darkblue;
     margin-top: 0px;
     margin-bottom: 0px;
@@ -48,5 +51,13 @@
     border: solid gray;
     border-radius: 20px;
     padding: 10px;
+    background-color: black;
+    color: white;
 
+}
+
+#show-comments-btn {
+    font-size: 10px;
+    border-radius: 5px;
+    width: 100px;
 }
