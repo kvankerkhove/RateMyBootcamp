@@ -22,11 +22,10 @@ function App() {
 
   const [currentPath, setCurrentPath] = useState("");
 
-  console.log(currentUser)
+
 
   useEffect(() => {
     return history.listen((location) => {
-      console.log(`You changed the page to: ${location.pathname}`);
       setCurrentPath(location.pathname);
     });
   }, [history]);
@@ -48,7 +47,6 @@ function App() {
     fetch(`http://localhost:9292/bootcamps/${name}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setReviews(data);
       });
   }
@@ -70,11 +68,13 @@ function App() {
       .then((res) => res.json())
       .then((data) => setUsers(data));
   }, []);
+
   const handleLogin = (loginInfo) => {
     setCurrentUser(loginInfo);
     setIsLoggedIn(true);
     history.push("/bootcamps");
   };
+
   const onSignUpClick = (signUpInfo) => {
     setUsers([...users, signUpInfo]);
   };
@@ -89,6 +89,8 @@ function App() {
   }, [currentUser, users]);
 
   function formSubmit(newData) {
+
+    console.log(newData)
     const updatedReviews = [newData, ...reviews];
     setReviews(updatedReviews)
     window.scroll({
@@ -98,9 +100,11 @@ function App() {
      })
   }
 
+
+
   return (
     <div>
-      <NavBar setIsLoggedIn={setIsLoggedIn} setCurrentUser={setCurrentUser} />
+      <NavBar setIsLoggedIn={setIsLoggedIn} setCurrentUser={setCurrentUser} currentUser={currentUser} isLoggedIn={isLoggedIn}/>
       <Switch>
         <Route path="/about">
           <About />

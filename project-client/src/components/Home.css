@@ -1,7 +1,35 @@
 .wrapper {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 20px;
-    width: 100%;
-    padding: 20px;
-  }
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 16rem));
+  gap: 4rem;
+  justify-content: center;
+  margin-top: 50px;
+ 
+}
+
+#home{
+  background-image: url('../7.png');
+  background-size: contain;
+  overflow: scroll;
+  padding-bottom: 1000px;
+  padding-top: 30px;
+}
+
+#title{
+  text-align: center;
+  font-family: Montserrat,sans-serif;
+  font-size: 70px;
+  line-height: 82px;
+  margin-bottom: 26px;
+  text-transform: uppercase;
+  color: rgb(3, 3, 3);
+  font-weight: 700;
+}
+
+#subtitle{
+  text-align: center;
+  font-family: Montserrat,sans-serif;
+  margin: 2rem;
+  color: rgb(12, 12, 12);
+  font-weight: 550;
+}

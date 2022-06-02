@@ -1,70 +1,72 @@
-// import React from "react";
-// import { Link, useHistory } from "react-router-dom";
-
-// function NavBar({ setIsLoggedIn, setCurrentUser }) {
-//   const history = useHistory();
-//   return (
-//     <div className="nav-bar">
-//       <button
-//         onClick={() => {
-//           setIsLoggedIn(false);
-//           setCurrentUser("");
-//           history.push("/login");
-//         }}
-//       >
-//         logout
-//       </button>
-//       <Link to="/about">About</Link>
-//       <Link to="/bootcamps">Home</Link>
-//       <Link to="/login">Login</Link>
-//     </div>
-//   );
-// }
-// export default NavBar;
-
-
 import React from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import { Navbar, Nav, Button } from "react-bootstrap";
 import "./NavBar.css";
+import logo2 from "../logo2.png"
 
-function NavBar({ setIsLoggedIn, setCurrentUser }) {
+function NavBar({ setIsLoggedIn, setCurrentUser, currentUser, isLoggedIn }) {
  const history = useHistory();
  return (
-   <Navbar id="navbar_container" expand="lg" bg="dark" variant="dark">
-     <div className="left_navbar">
-       <Navbar.Brand>
-         <NavLink to="/bootcamps">React-Bootstrap</NavLink>
-        </Navbar.Brand>
+  <Navbar id="navbar_container" expand="lg" bg="dark" variant="dark">
+  <div className="left_navbar">
+    <Nav>
+      <Navbar.Brand>
+        <NavLink to="/bootcamps">
+          <img src={logo2} style={{ width: 50, height: 50 }}></img>
+        </NavLink>
+      </Navbar.Brand>
 
-       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-       <Nav.Link>
-         <NavLink to="/bootcamps">Home</NavLink> 
-        </Nav.Link>
-        <Nav.Link>
-          <NavLink to="/about">About</NavLink>
-        </Nav.Link>
-        <Nav.Link>
-          <NavLink to="/login">Login</NavLink>
-        </Nav.Link>
-     </div>
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Nav.Link>
+        <NavLink
+          to="/bootcamps"
+          style={{ textDecoration: "none" }}
+          className="nav_link"
+        >
+          Bootcamps
+        </NavLink>
+      </Nav.Link>
+      <Nav.Link>
+        <NavLink
+          to="/about"
+          style={{ textDecoration: "none" }}
+          className="nav_link"
+        >
+          About
+        </NavLink>
+      </Nav.Link>
+      <Nav.Link>
+        <NavLink
+          to="/login"
+          style={{ textDecoration: "none" }}
+          className="nav_link"
+        >
+          Login
+        </NavLink>
+      </Nav.Link>
+    </Nav>
+  </div>
 
-     <div id="right_navbar">
-       <Button
-         onClick={() => {
-           setIsLoggedIn(false);
-           setCurrentUser("");
-           history.push("/login");
-         }}
-       >
-         logout
-       </Button>
+  <div id="right_navbar">
+    {isLoggedIn ? (
+      <h1 id="welcome_user">Welcome, {currentUser.username}</h1>
+    ) : null}
+    <Button
+      onClick={() => {
+        setIsLoggedIn(false);
+        setCurrentUser("");
+        history.push("/login");
+      }}
+      id="logoutbtn"
+    >
+      Logout
+    </Button>
 
-       {/* <Link to="/about">About</Link>
-     <Link to="/bootcamps">Home</Link>
-     <Link to="/login">Login</Link> */}
-     </div>
-   </Navbar>
+  </div>
+ </Navbar>
+
+   
  );
 }
 export default NavBar;
+
