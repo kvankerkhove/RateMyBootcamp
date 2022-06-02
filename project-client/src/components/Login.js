@@ -7,7 +7,9 @@ function Login({ users, handleLogin, isLoggedIn }) {
     password: "",
   });
   const [loginIsCorrect, setLoginIsCorrect] = useState(true);
+  console.log(isLoggedIn)
   if (isLoggedIn) return <Redirect to="/bootcamps" />;
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
