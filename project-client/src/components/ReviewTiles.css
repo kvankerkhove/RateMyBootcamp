@@ -1,0 +1,41 @@
+#card {
+    background-color: white;
+    border: solid black;
+    width: 500px;
+    border-radius: 20px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+
+.stars-name {
+    display: flex;
+    flex-direction: column;
+}
+
+.stars-ago {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#stars {
+    font-size: 20px;
+    color: darkblue;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+#time-ago {
+    font-size: 14px;
+}
+
+#username {
+    font-size: 14px;
+    align-self: flex-start;
+}
+
+.review-button {
+    font-size: 20px;
+
+}

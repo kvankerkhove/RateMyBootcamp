@@ -22,7 +22,7 @@ class ApplicationController < Sinatra::Base
     end
     
     get '/bootcamps/:name' do
-        bootcamp = Bootcamp.find_by(name: params[:name]).reviews
+        bootcamp = Bootcamp.find_by(name: params[:name]).reviews.order(created_at: :desc)
         bootcamp.to_json
     end
 

@@ -4,6 +4,7 @@ puts "Seeding data..."
 User.create(username: 'kvank', password: '1234')
 User.create(username: 'hyun', password: '5678')
 User.create(username: 'fakeaccount12', password: '1111')
+User.create(username: 'coder5000', password: '8888')
 
 Bootcamp.create(name: "Simplilearn", image: "https://careerkarma.com/_next/image/?url=https%3A%2F%2Fd1psgljc389n8q.cloudfront.net%2F100x100%2Fbootcamps%2Flogos%2Fbootcamp-logo-simplilearn.jpg&w=128&q=100", description: "Simplilearn is the world's #1 online Bootcamp for digital economy skills training on emerging technologies and processes that are transforming the digital world today. Our efforts as an organization are focused on helping people acquire the skills they need to thrive in the digital economy.")
 

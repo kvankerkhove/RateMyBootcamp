@@ -7,6 +7,8 @@ import Login from "./Login";
 import Reviews from "./Reviews";
 import SignUp from "./SignUp";
 
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 function App() {
   const [bootcamps, setBootcamps] = useState([]);
   const [users, setUsers] = useState([]);
@@ -19,6 +21,8 @@ function App() {
   const history = useHistory();
 
   const [currentPath, setCurrentPath] = useState("");
+
+  console.log(currentUser)
 
   useEffect(() => {
     return history.listen((location) => {
@@ -36,6 +40,11 @@ function App() {
   function handleReviewClick(bootcamp, name, average_review) {
     setCurrentBootcamp(bootcamp);
     history.push("/reviews");
+    window.scroll({
+      top: 0, 
+      left: 0, 
+      behavior: 'smooth' 
+     })
     fetch(`http://localhost:9292/bootcamps/${name}`)
       .then((res) => res.json())
       .then((data) => {
@@ -80,8 +89,13 @@ function App() {
   }, [currentUser, users]);
 
   function formSubmit(newData) {
-    const updatedReviews = [...reviews, newData];
-    setReviews(updatedReviews);
+    const updatedReviews = [newData, ...reviews];
+    setReviews(updatedReviews)
+    window.scroll({
+      top: 0, 
+      left: 0, 
+      behavior: 'smooth' 
+     })
   }
 
   return (
@@ -116,6 +130,8 @@ function App() {
             handleReviewDelete={handleReviewDelete}
             loggedInUserId={loggedInUserId}
             formSubmit={formSubmit}
+            isLoggedIn={isLoggedIn}
+            currentUser={currentUser}
           />
         </Route>
       </Switch>

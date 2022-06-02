@@ -1,0 +1,44 @@
+.reviews-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 10%;
+}
+
+.reviews-child {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+}
+
+.reviews-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* text-align: center; */
+    margin-left: 10px;
+}
+
+.bootcamp-image {
+    width: 50%;
+}
+
+
+
+.form-child {
+    margin-top: 20px;
+    background-color: lightblue;
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    position: sticky; top: 0px;
+    height: 200px;
+    width: 40%;
+
+}
