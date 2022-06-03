@@ -1,0 +1,46 @@
+#about-page {
+    background-image: url('../6.jpg');
+    height: 100vh;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+}
+#about-wrapper {
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+#about-title {
+    color: white;
+    font-size: 60px;
+    font-style: italic;
+}
+#about-rating {
+    color: white;
+    font-size: 60px;
+    font-style: italic;
+}
+#about-text {
+    background-color: #AAF8CE;
+    font-size: 20px;
+    width: 75%;
+    align-self: center;
+    padding: 10px;
+    border-radius: 10px;
+}
+#about-second {
+    background-color: #AAF8CE;
+    font-size: 20px;
+    width: 75%;
+    align-self: center;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#logo{
+    align-self: center;
+    width: 200px;
+}

@@ -2,8 +2,8 @@
     background-image: url('../3.jpg');
     background-size: 1500px 1800px;
     /* background-size: cover; */
+   min-height: 100vh;
 }
-
 .reviews-container {
     display: flex;
     flex-direction: row;
@@ -12,7 +12,6 @@
     margin-left: 7%;
     margin-right: 7%;
 }
-
 .reviews-child {
     /* background-color: black; */
     display: flex;
@@ -21,7 +20,6 @@
     text-align: center;
     margin-top: 50px;
 }
-
 .reviews-header {
     display: flex;
     flex-direction: column;
@@ -30,14 +28,10 @@
     margin-left: 10px;
     color: white;
 }
-
 .bootcamp-image {
     width: 50%;
     border-radius: 10px;
 }
-
-
-
 .form-child {
     margin-top: 100px;
     background-image: url('../7.png');
@@ -48,5 +42,4 @@
     position: sticky; top: 0px;
     height: 50%;
     width: 45%;
-
 }

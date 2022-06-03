@@ -8,7 +8,7 @@ import Login from "./Login";
 import Reviews from "./Reviews";
 import SignUp from "./SignUp";
 
-import 'bootstrap/dist/css/bootstrap.min.css'
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   const [bootcamps, setBootcamps] = useState([]);
@@ -22,8 +22,6 @@ function App() {
   const history = useHistory();
 
   const [currentPath, setCurrentPath] = useState("");
-
-
 
   useEffect(() => {
     return history.listen((location) => {
@@ -41,10 +39,10 @@ function App() {
     setCurrentBootcamp(bootcamp);
     history.push("/reviews");
     window.scroll({
-      top: 0, 
-      left: 0, 
-      behavior: 'smooth' 
-     })
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
     fetch(`http://localhost:9292/bootcamps/${name}`)
       .then((res) => res.json())
       .then((data) => {
@@ -78,7 +76,7 @@ function App() {
 
   const onSignUpClick = (signUpInfo) => {
     setUsers([...users, signUpInfo]);
-    history.push('/login')
+    history.push("/login");
   };
 
   useEffect(() => {
@@ -91,27 +89,29 @@ function App() {
   }, [currentUser, users]);
 
   function formSubmit(newData) {
-
-    console.log(newData)
+    console.log(newData);
     const updatedReviews = [newData, ...reviews];
-    setReviews(updatedReviews)
+    setReviews(updatedReviews);
     window.scroll({
-      top: 0, 
-      left: 0, 
-      behavior: 'smooth' 
-     })
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
   }
-
-
 
   return (
     <div>
-      <NavBar setIsLoggedIn={setIsLoggedIn} setCurrentUser={setCurrentUser} currentUser={currentUser} isLoggedIn={isLoggedIn}/>
+      <NavBar
+        setIsLoggedIn={setIsLoggedIn}
+        setCurrentUser={setCurrentUser}
+        currentUser={currentUser}
+        isLoggedIn={isLoggedIn}
+      />
       <Switch>
         <Route path="/about">
           <About />
         </Route>
-        <Route path="/bootcamps">
+        <Route exact path={["/", "/bootcamps"]}>
           <Home
             bootcamps={bootcamps}
             handleReviewClick={handleReviewClick}
