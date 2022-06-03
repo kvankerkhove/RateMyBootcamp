@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./SignUp.css";
+
 function SignUp({ users, onSignUpClick }) {
   const [signUpData, setSignUpData] = useState({
     username: "",
@@ -28,42 +29,45 @@ function SignUp({ users, onSignUpClick }) {
     const { name, value } = e.target;
     setSignUpData({ ...signUpData, [name]: value });
   };
+
   return (
-    <div className="signup-wrapper">
-      <small>
-        Click <a href="/login">here</a> to go back to Login
-      </small>
-      <div>
-        <h1>Sign Up</h1>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <small>Username</small>
+    <div className="signup-page">
+      <div className="signup-wrapper">
+        <small>
+          Click <a href="/login">here</a> to go back to Login
+        </small>
+        <div>
+          <h1>Sign Up</h1>
+          <form onSubmit={handleSubmit}>
+            <div>
+              <small>Username</small>
+              <br></br>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                value={signUpData.username}
+                onChange={handleOnChange}
+              />
+            </div>
             <br></br>
-            <input
-              type="text"
-              id="username"
-              name="username"
-              value={signUpData.username}
-              onChange={handleOnChange}
-            />
-          </div>
-          <br></br>
-          <div>
-            <small>Password</small>
+            <div>
+              <small>Password</small>
+              <br></br>
+              <input
+                type="password"
+                id="pass"
+                name="password"
+                value={signUpData.password}
+                onChange={handleOnChange}
+              />
+            </div>
             <br></br>
-            <input
-              type="password"
-              id="pass"
-              name="password"
-              value={signUpData.password}
-              onChange={handleOnChange}
-            />
-          </div>
-          <br></br>
-          <div>
-            <button type="submit">Submit</button>
-          </div>
-        </form>
+            <div>
+              <button id='signup-button' type="submit">Submit</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );

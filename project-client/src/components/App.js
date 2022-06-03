@@ -1,5 +1,6 @@
 import { Switch, Route, useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
+
 import NavBar from "./NavBar";
 import About from "./About";
 import Home from "./Home";
@@ -77,6 +78,7 @@ function App() {
 
   const onSignUpClick = (signUpInfo) => {
     setUsers([...users, signUpInfo]);
+    history.push('/login')
   };
 
   useEffect(() => {

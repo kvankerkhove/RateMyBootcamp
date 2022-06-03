@@ -29,46 +29,48 @@ function Login({ users, handleLogin, isLoggedIn }) {
     }
   };
   return (
-    <div className="login-wrapper">
-      <small>
-        Don't have an account? <a href="/signup">Register</a>
-      </small>
-      <div>
-        <h1>Login</h1>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <small>Username</small>
+    <div className="login-page">
+      <div className="login-wrapper">
+        <small>
+          Don't have an account? <a href="/signup">Register</a>
+        </small>
+        <div>
+          <h1>Login</h1>
+          <form onSubmit={handleSubmit}>
+            <div>
+              <small>Username</small>
+              <br></br>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                value={formData.username}
+                onChange={handleChange}
+              />
+            </div>
             <br></br>
-            <input
-              type="text"
-              id="username"
-              name="username"
-              value={formData.username}
-              onChange={handleChange}
-            />
-          </div>
-          <br></br>
-          <div>
-            <small>Password</small>
+            <div>
+              <small>Password</small>
+              <br></br>
+              <input
+                type="password"
+                id="pass"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+              />
+            </div>
+            {loginIsCorrect ? null : (
+              <small style={{ color: "red" }}>
+                username or password is incorrect
+              </small>
+            )}
             <br></br>
-            <input
-              type="password"
-              id="pass"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-            />
-          </div>
-          {loginIsCorrect ? null : (
-            <small style={{ color: "red" }}>
-              username or password is incorrect
-            </small>
-          )}
-          <br></br>
-          <div>
-            <button type="submit">Submit</button>
-          </div>
-        </form>
+            <div>
+              <button id='login-button' type="submit">Submit</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );

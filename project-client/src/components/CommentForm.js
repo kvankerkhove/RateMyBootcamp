@@ -33,7 +33,6 @@ function CommentButton({reviewId, loggedInUserId, handleCommentSubmit}) {
   return (
     <form onSubmit={handleSubmit}>
         <input type="text" id="comment-form" onChange={handleOnChange} value={commentFormData.text}/>
-        <button type="submit" id="comment-button">Post</button>
     </form>
   )
 }

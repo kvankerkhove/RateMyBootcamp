@@ -35,18 +35,18 @@ function Form({ currentBootcamp, loggedInUserId, formSubmit }) {
       .then((res) => res.json())
       .then((data) => formSubmit(data));
 
-      setFormData({...formData, star_rating: "", title: "", comment: "" })
+      setFormData({...formData, title: "", comment: "" })
   }
   return (
     <div>
       <form id="submit-review-form" onSubmit={handleSubmit}>
         <small className="review-form-labels" >Title</small>
-        <input type="text" name="title" placeholder="Enter title here..." onChange={handleOnChange} value={formData.title} />
+        <input type="text" name="title" id='title-textbox' placeholder="Enter title here..." onChange={handleOnChange} value={formData.title} />
         <br></br>
         <small className="review-form-labels" >Review</small>
         <textarea type="text" rows="5" name="comment" id="comment-textbox" placeholder="Enter full review here..." onChange={handleOnChange} value={formData.comment}></textarea>
         <StarRating handleStarRating={handleStarRating} />
-        <button type="Submit">Create Review</button>
+        <button id='submit-review-button' type="Submit">Create Review</button>
       </form>
     </div>
   );

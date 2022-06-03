@@ -1,5 +1,7 @@
 #reviews-page {
-    background-image: url('https://images5.alphacoders.com/390/390081.jpg');
+    background-image: url('../3.jpg');
+    background-size: 1500px 1800px;
+    /* background-size: cover; */
 }
 
 .reviews-container {
@@ -31,14 +33,16 @@
 
 .bootcamp-image {
     width: 50%;
+    border-radius: 10px;
 }
 
 
 
 .form-child {
     margin-top: 100px;
-    background-color: lightblue;
-    color: white;
+    background-image: url('../7.png');
+    background-size: cover;
+    color: black;
     padding: 20px;
     border-radius: 15px;
     position: sticky; top: 0px;

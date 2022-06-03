@@ -16,6 +16,12 @@ class ApplicationController < Sinatra::Base
         bootcamps.to_json(include: :reviews)
     end
 
+    get '/highest_rated' do
+        average_ratings_hash = Review.all.group(:bootcamp_id).average(:star_rating)
+        highest_rated_id = average_ratings_hash.max_by{|key, value| value}.first
+        Bootcamp.find(highest_rated_id).to_json
+    end
+
     get '/users/:id' do
         user = User.find(params[:id])
         user.to_json

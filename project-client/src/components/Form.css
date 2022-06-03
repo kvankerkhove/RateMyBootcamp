@@ -60,4 +60,24 @@
 
 .review-form-labels {
     font-size: 20px;
+    align-self: flex-start;
+}
+
+#comment-textbox {
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+}
+
+#title-textbox {
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+}
+
+#submit-review-button {
+    width: 150px;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
 }

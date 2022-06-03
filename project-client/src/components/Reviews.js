@@ -37,8 +37,7 @@ function Reviews({
                   </div>
                   <h1>{currentBootcamp.name}</h1>
               </div>
-              <br></br>
-              <small>{reviews.length} user reviews</small>
+              <small style={{color: 'white'}}>{reviews.length} user reviews</small>
               <div>
                   {review}
               </div>

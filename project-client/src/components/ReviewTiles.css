@@ -1,13 +1,13 @@
 #card {
     display: flex;
     flex-direction: column;
-    background-color: black;
+    background-color: white;
     border: solid 3px black;
     width: 500px;
     border-radius: 20px;
     padding: 10px;
     margin-top: 50px;
-    color: white;
+    color: black;
 }
 
 
@@ -24,7 +24,7 @@
 
 #stars {
     font-size: 30px;
-    color: darkblue;
+    color: black;
     margin-top: 0px;
     margin-bottom: 0px;
 }
@@ -51,13 +51,13 @@
     border: solid gray;
     border-radius: 20px;
     padding: 10px;
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: black;
 
 }
 
 #show-comments-btn {
-    font-size: 10px;
+    font-size: 12px;
     border-radius: 5px;
-    width: 100px;
+    width: 110px;
 }

@@ -98,9 +98,8 @@ function ReviewTiles({ review, handleReviewDelete, isLoggedIn, currentUser, logg
             <small id="username"><b> {reviewAuthor}</b><small id="time-ago"> {date}, {time}</small></small>
           </div>
         </div>
-        <br></br>
-        <h4>{title}</h4>
-        <p>{comment}</p>
+        <h4 id="title-card">{title}</h4>
+        <p id="review-card">{comment}</p>
         <button id="show-comments-btn" onClick={handleShowComments}>{commentsShowing ? "hide comments" : "show comments"}</button>
       </div>
       {commentsShowing ? 
